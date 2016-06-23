@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">DevIntensive</string>
+    <string name="app_name">Михаил Копьев</string>
+
+    <!--List Strings -->
+    <string name="mobile">Мобильный</string>
+    <string name="phone_number">+7 (915) 995-**</string>
+    <string name="email">E-mail</string>
+    <string name="email_value">**@gmail.com</string>
+    <string name="profile_vk">Профиль в VK</string>
+    <string name="edit_profil_vk">vk.com/**</string>
+    <string name="repository">Репозиторий</string>
+    <string name="edit_repository">github.com/**/DevIntensive</string>
+    <string name="about">О себе</string>
+    <string name="edit_about">хочу стать Android разработчиком</string>
+
+    <!--User Bar Strings -->
+    <string name="rating">Рейтинг</string>
+    <string name="write_string_code">Написано строк кода</string>
+    <string name="projects">Проектов</string>
+    <string name="count_rating">5</string>
+    <string name="count_string_code">5</string>
+    <string name="count_projects">5</string>
 </resources>
