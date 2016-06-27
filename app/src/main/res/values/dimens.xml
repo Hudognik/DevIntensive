@@ -20,6 +20,7 @@
     <dimen name="spacing_normal_16">16dp</dimen>
     <dimen name="spacing_small_8">8dp</dimen>
     <dimen name="spacing_tiny_4">4dp</dimen>
+    <dimen name="fab_right_space">16dp</dimen>
 
     <!-- Sizes -->
     <dimen name="size_large_72">72dp</dimen>
