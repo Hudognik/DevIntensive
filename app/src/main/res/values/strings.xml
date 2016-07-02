@@ -20,4 +20,8 @@
     <string name="count_rating">5</string>
     <string name="count_string_code">5</string>
     <string name="count_projects">5</string>
+
+    <!--Drawer Strings-->
+    <string name="my_profile">Мой Профиль</string>
+    <string name="team">Команда</string>
 </resources>
