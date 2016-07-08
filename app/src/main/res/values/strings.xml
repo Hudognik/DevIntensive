@@ -3,14 +3,15 @@
 
     <!--List Strings -->
     <string name="mobile">Мобильный</string>
-    <string name="phone_number">+7 (915) 995-**</string>
+
     <string name="email">E-mail</string>
-    <string name="email_value">**@gmail.com</string>
     <string name="profile_vk">Профиль в VK</string>
-    <string name="edit_profil_vk">vk.com/**</string>
     <string name="repository">Репозиторий</string>
-    <string name="edit_repository">github.com/**/DevIntensive</string>
     <string name="about">О себе</string>
+    <string name="phone_number">+7 (915) 995-**</string>
+    <string name="email_value">**@gmail.com</string>
+    <string name="edit_profile_vk">vk.com/</string>
+    <string name="edit_repository">github.com/</string>
     <string name="edit_about">хочу стать Android разработчиком</string>
 
     <!--User Bar Strings -->
@@ -24,4 +25,25 @@
     <!--Drawer Strings-->
     <string name="my_profile">Мой Профиль</string>
     <string name="team">Команда</string>
+    <string name="user_profile.placeholder.image">Изменить фотографию профиля</string>
+    <string name="user_profile.dialog.gallery">Загрузить из галлереи</string>
+    <string name="user_profile.dialog.camera">Сделать снимок</string>
+    <string name="user_profile.dialog.cancel">Отмена</string>
+    <string name="user_profile.dialog.title">Изменить фотографию профиля</string>
+    <string name="user_profile_choose_message">Выберите фото</string>
+    <string name="make_shoot">Сделать снимок</string>
+    <string name="cancel">Отмена</string>
+
+    <!--Error Strings-->
+    <string name="err_msg_phone">Enter valid phone number: +x xxx xxx-xx-xx</string>
+    <string name="err_msg_email">Enter valid email address</string>
+    <string name="err_msg_url">Enter valid url address</string>
+
+    <!--Login Strings-->
+    <string name="enter">ВОЙТИ</string>
+    <string name="forget_password">Забыли пароль?</string>
+    <string name="email_login_et">Email</string>
+    <string name="password_login_et">Password</string>
+    <string name="err_password">Введите пароль</string>
+
 </resources>

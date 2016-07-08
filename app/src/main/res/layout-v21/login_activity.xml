@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:gravity="center"
+    tools:context=".ui.activities.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="@dimen/size_larger_256"
+        android:layout_height="wrap_content"
+        android:background="#f9f9f9"
+        android:elevation="@dimen/spacing_normal_16"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/spacing_medium_32"
+        android:paddingTop="@dimen/spacing_medium_32">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <View
+                android:id="@+id/split"
+                android:layout_width="@dimen/spacing_tiny_4"
+                android:layout_height="@dimen/spacing_medium_24"
+                android:background="@color/red"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_medium_24"
+                android:layout_marginRight="@dimen/spacing_medium_24"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/enter"
+                android:textColor="@color/red"
+                android:textSize="@dimen/font_large_24"/>
+        </LinearLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_medium_24"
+            android:layout_marginRight="@dimen/spacing_medium_24"
+            android:layout_marginTop="@dimen/spacing_normal_16">
+
+            <EditText
+                android:id="@+id/login_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/email_login_et"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/grey"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_medium_24"
+            android:layout_marginRight="@dimen/spacing_medium_24"
+            android:layout_marginTop="@dimen/spacing_normal_16">
+
+
+            <EditText
+                android:id="@+id/password_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="@string/password_login_et"
+                android:inputType="textPassword"
+                android:textColorHint="@color/grey"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/signin_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/spacing_medium_24"
+            android:layout_marginTop="@dimen/spacing_medium_24"
+            android:background="@color/red"
+            android:paddingLeft="@dimen/spacing_large_56"
+            android:paddingRight="@dimen/spacing_large_56"
+            android:text="@string/enter"
+            android:textColor="@android:color/white">
+        </Button>
+
+        <TextView
+            android:id="@+id/forget_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/forget_password"
+            android:textColor="@color/grey_light"/>
+    </LinearLayout>
+</LinearLayout>
+
+
