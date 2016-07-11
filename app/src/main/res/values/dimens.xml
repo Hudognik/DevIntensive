@@ -28,4 +28,7 @@
     <dimen name="size_medium_48">48dp</dimen>
     <dimen name="size_small_24">24dp</dimen>
     <dimen name="size_separator_1">1dp</dimen>
+    <dimen name="profile_image_size">256dp</dimen>
+    <dimen name="placeholder_photo_size_90">90dp</dimen>
+    <dimen name="size_larger_256">256dp</dimen>
 </resources>

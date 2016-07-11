@@ -28,13 +28,46 @@
                 app:contentScrim="@color/grey_light"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <ImageView
-                    android:id="@+id/user_photo_img"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="256dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/header_bg"
-                    android:fitsSystemWindows="true"/>
+                    android:layout_height="@dimen/profile_image_size"
+                    android:fitsSystemWindows="true">
+
+                    <ImageView
+                        android:id="@+id/user_photo_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="256dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/header_bg"/>
+
+                    <RelativeLayout
+                        android:id="@+id/profile_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey_background"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@+id/photo_placeholder"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/spacing_small_8"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/user_profile.placeholder.image"
+                            android:textColor="@color/white"/>
+
+                        <ImageView
+                            android:id="@+id/photo_placeholder"
+                            android:layout_width="@dimen/placeholder_photo_size_90"
+                            android:layout_height="@dimen/placeholder_photo_size_90"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="@dimen/spacing_large_56"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/add_a_photo_48px"/>
+                    </RelativeLayout>
+                </FrameLayout>
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -46,240 +79,16 @@
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.v4.widget.NestedScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <!--user Bar -->
-                <LinearLayout
-                    style="@style/userBar">
-
-                    <LinearLayout
-                        style="@style/userBarElement.Side">
-
-                        <TextView
-                            style="@style/userBarText.Value"
-                            android:text="@string/count_rating"/>
-
-                        <TextView
-                            style="@style/userBarText.Description"
-                            android:text="@string/rating"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        style="@style/userBarSeparator">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        style="@style/userBarElement.Central">
-
-                        <TextView
-                            style="@style/userBarText.Value"
-                            android:text="@string/count_string_code"/>
-
-                        <TextView
-                            style="@style/userBarText.Description"
-                            android:text="@string/write_string_code"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        style="@style/userBarSeparator">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        style="@style/userBarElement.Side">
-
-                        <TextView
-                            style="@style/userBarText.Value"
-                            android:text="@string/count_projects"/>
-
-                        <TextView
-                            style="@style/userBarText.Description"
-                            android:text="@string/projects"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <!--user List Information Elements-->
-                <!--phone -->
-                <LinearLayout
-                    style="@style/listElements">
-
-                    <ImageView
-                        android:id="@+id/call_img"
-                        style="@style/icon.left"
-                        android:src="@drawable/ic_call_black_24dp"/>
-
-                    <LinearLayout
-                        style="@style/listContent">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/phone_et"
-                                style="@style/listEditText"
-                                android:hint="@string/mobile"
-                                android:inputType="phone"
-                                android:text="@string/phone_number"/>
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
-
-                    <ImageView
-                        style="@style/icon.right"
-                        android:src="@drawable/ic_phone_in_talk_black_24dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/ListSeparator">
-                </LinearLayout>
-
-                <!--Email -->
-                <LinearLayout
-                    style="@style/listElements">
-
-                    <ImageView
-                        style="@style/icon.left"
-                        android:src="@drawable/ic_email_black_24dp"/>
-
-                    <LinearLayout
-                        style="@style/listContent">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/email_et"
-                                style="@style/listEditText"
-                                android:hint="@string/email"
-                                android:inputType="textEmailAddress"
-                                android:text="@string/email_value"/>
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
-
-                    <ImageView
-                        style="@style/icon.right"
-                        android:src="@drawable/ic_send_black_24dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/ListSeparator">
-                </LinearLayout>
-
-                <!--Social web -->
-                <LinearLayout
-                    style="@style/listElements">
-
-                    <ImageView
-                        style="@style/icon.left"
-                        android:src="@drawable/vk_circle"/>
-
-                    <LinearLayout
-                        style="@style/listContent">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/vk_et"
-                                style="@style/listEditText"
-                                android:hint="@string/profile_vk"
-                                android:inputType="textUri"
-                                android:text="@string/edit_profil_vk"/>
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
-
-                    <ImageView
-                        style="@style/icon.right"
-                        android:src="@drawable/ic_visibility_black_24dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/ListSeparator">
-                </LinearLayout>
-
-                <!--Github-->
-                <LinearLayout
-                    style="@style/listElements">
-
-                    <ImageView
-                        style="@style/icon.left"
-                        android:src="@drawable/github_circle"/>
-
-                    <LinearLayout
-                        style="@style/listContent">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/git_et"
-                                style="@style/listEditText"
-                                android:hint="@string/repository"
-                                android:inputType="textUri"
-                                android:text="@string/edit_repository"/>
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
-
-                    <ImageView
-                        style="@style/icon.right"
-                        android:src="@drawable/ic_visibility_black_24dp"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/ListSeparator">
-                </LinearLayout>
-
-                <!--About -->
-                <LinearLayout
-                    style="@style/listElements">
-
-                    <ImageView
-                        style="@style/icon.left"
-                        android:src="@drawable/ic_account_circle_black_24dp"/>
-
-                    <LinearLayout
-                        style="@style/listContent">
-
-                        <android.support.design.widget.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <EditText
-                                android:id="@+id/bio_et"
-                                style="@style/listEditText"
-                                android:hint="@string/about"
-                                android:inputType="text"
-                                android:text="@string/edit_about"/>
-                        </android.support.design.widget.TextInputLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    style="@style/ListSeparator">
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+        <include layout="@layout/user_profile_content"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/fab_right_space"
             android:src="@drawable/ic_create_black_24dp"
             app:layout_anchor="@id/appbar_layout"
-            app:layout_anchorGravity="bottom|right"
-            android:layout_marginRight="@dimen/fab_right_space"/>
+            app:layout_anchorGravity="bottom|right"/>
 
     </android.support.design.widget.CoordinatorLayout>
 
@@ -288,8 +97,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_menu">
+
+        <include layout="@layout/drawer_header"/>
 
     </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
