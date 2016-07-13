@@ -17,12 +17,16 @@
     <dimen name="spacing_medium_32">32dp</dimen>
     <dimen name="spacing_fab_28">28dp</dimen>
     <dimen name="spacing_medium_24">24dp</dimen>
+    <dimen name="spacing_medium_20">20dp</dimen>
     <dimen name="spacing_normal_16">16dp</dimen>
     <dimen name="spacing_small_8">8dp</dimen>
     <dimen name="spacing_tiny_4">4dp</dimen>
+    <dimen name="spacing_tiny_2">2dp</dimen>
     <dimen name="fab_right_space">16dp</dimen>
 
     <!-- Sizes -->
+    <dimen name="size_larger_240">240dp</dimen>
+    <dimen name="size_larger_112">112dp</dimen>
     <dimen name="size_large_72">72dp</dimen>
     <dimen name="size_medium_56">56dp</dimen>
     <dimen name="size_medium_48">48dp</dimen>

@@ -79,6 +79,66 @@
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
+        <!--user Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_larger_112"
+            android:background="@color/grey"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_behavior=".ui.view.behaviors.UserInfoBehavior"
+            app:behavior_min_height="@dimen/size_medium_56">
+
+            <LinearLayout
+                style="@style/userBarElement.Side"
+                android:layout_weight="0.25">
+
+                <TextView
+                    android:id="@+id/user_value_rating"
+                    style="@style/userBarText.Value"
+                    android:text="@string/count_rating"/>
+
+                <TextView
+                    style="@style/userBarText.Description"
+                    android:text="@string/rating"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/userBarSeparator">
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/userBarElement.Central">
+
+                <TextView
+                    android:id="@+id/user_value_code_line"
+                    style="@style/userBarText.Value"
+                    android:text="@string/count_string_code"/>
+
+                <TextView
+                    style="@style/userBarText.Description"
+                    android:text="@string/write_string_code"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/userBarSeparator">
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/userBarElement.Side">
+
+                <TextView
+                    android:id="@+id/user_value_project"
+                    style="@style/userBarText.Value"
+                    android:text="@string/count_projects"/>
+
+                <TextView
+                    style="@style/userBarText.Description"
+                    android:text="@string/projects"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
         <include layout="@layout/user_profile_content"/>
 
         <android.support.design.widget.FloatingActionButton
@@ -97,6 +157,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:headerLayout="@layout/drawer_header"
         app:menu="@menu/drawer_menu">
 
         <include layout="@layout/drawer_header"/>

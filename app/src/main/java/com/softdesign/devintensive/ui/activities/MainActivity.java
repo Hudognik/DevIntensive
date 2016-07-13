@@ -103,6 +103,8 @@ public class MainActivity extends BaseActivity {
 
     @BindViews({R.id.phone_et, R.id.email_et, R.id.vk_et, R.id.git_et, R.id.bio_et})
     List<EditText> mUserInfoViews;
+    @BindViews({R.id.user_value_code_line, R.id.user_value_code_line, R.id.user_value_project})
+    List<TextView> mUserValueViews;
 
     // Strings
     @BindString(R.string.user_profile_dialog_gallery)
@@ -144,7 +146,8 @@ public class MainActivity extends BaseActivity {
 
         setupToolbar();
         setupDrawer();
-        loadUserInfoValue();
+        initUserFields();
+        initUserInfoValue();
 
         mUserPhone.addTextChangedListener(new inputTextWatcher(mUserPhone));
         mUserEmail.addTextChangedListener(new inputTextWatcher(mUserEmail));
@@ -152,8 +155,12 @@ public class MainActivity extends BaseActivity {
         mUserGit.addTextChangedListener(new inputTextWatcher(mUserGit));
 
         Picasso.with(this)
-            .load(mDataManager.getPreferencesManager().loadUserPhoto())
-            .into(mProfileImage);
+                .load(mDataManager.getPreferencesManager().loadUserPhoto())
+                .into(mProfileImage);
+
+        Picasso.with(this)
+                .load(mDataManager.getPreferencesManager().loadUserAvatar())
+                .into(mUserAvatar);
 
         if (savedInstanceState != null) {
             mCurrentEditMode = savedInstanceState.getBoolean(ConstantManager.EDIT_MODE_KEY, false);
@@ -234,7 +241,7 @@ public class MainActivity extends BaseActivity {
             toolbarColor = transparent;
 
             FieldHelper.requestFocus(mUserPhone, this);
-            saveUserInfoValue();
+            saveUserFields();
         } else {
             imageuri = R.drawable.ic_create_black_24dp;
             toolbarColor = white;
@@ -288,7 +295,7 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    private void loadUserInfoValue() {
+    private void initUserFields() {
         List<String> userData = mDataManager.getPreferencesManager().loadUserProfileData();
 
         for (int i = 0; i < userData.size(); i++) {
@@ -297,7 +304,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    private void saveUserInfoValue() {
+    private void saveUserFields() {
         List<String> userData = new ArrayList<>();
 
         for (EditText userFieldView : mUserInfoViews) {
@@ -305,6 +312,13 @@ public class MainActivity extends BaseActivity {
         }
 
         mDataManager.getPreferencesManager().saveUserProfileData(userData);
+    }
+
+    private void initUserInfoValue() {
+        List<String> userData = mDataManager.getPreferencesManager().loadUserProfileValues();
+        for (int i = 0; i < userData.size(); i++) {
+            mUserValueViews.get(i).setText(userData.get(i));
+        }
     }
 
     @Override
@@ -432,7 +446,7 @@ public class MainActivity extends BaseActivity {
                     .load(selectedImage)
                     .into(mProfileImage);
 
-            mDataManager.getPreferencesManager().SaveUserPhoto(selectedImage);
+            mDataManager.getPreferencesManager().saveUserPhoto(selectedImage);
         }
     }
 
