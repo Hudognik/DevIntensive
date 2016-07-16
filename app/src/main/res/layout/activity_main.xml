@@ -1,166 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
-    android:id="@+id/navigation_drawer"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/navigation_drawer"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ui.activities.MainActivity">
+
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/main_coordinator_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.activities.MainActivity">
+    android:fitsSystemWindows="true">
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/main_coordinator_conteiner"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/appbar_layout"
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_primary"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            app:contentScrim="@color/color_primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:contentScrim="@color/grey_light"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                android:layout_height="@dimen/size_profile_image_256"
+                android:fitsSystemWindows="true">
 
-                <FrameLayout
+                <ImageView
+                    android:id="@+id/user_photo_img"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/profile_image_size"
-                    android:fitsSystemWindows="true">
+                    android:layout_height="@dimen/size_profile_image_256"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user_bg"/>
+
+                <RelativeLayout
+                    android:id="@+id/profile_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/grey_background"
+                    android:visibility="gone">
 
                     <ImageView
-                        android:id="@+id/user_photo_img"
-                        android:layout_width="match_parent"
-                        android:layout_height="256dp"
+                        android:id="@+id/photo_placeholder"
+                        android:layout_width="@dimen/placeholder_image_size_90"
+                        android:layout_height="@dimen/placeholder_image_size_90"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/spacing_large_56"
                         android:scaleType="centerCrop"
                         android:src="@drawable/header_bg"/>
 
-                    <RelativeLayout
-                        android:id="@+id/profile_placeholder"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@color/grey_background"
-                        android:visibility="gone">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/photo_placeholder"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/user_profile.placeholder.image"
+                        android:textColor="@color/white"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_above="@+id/photo_placeholder"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="@dimen/spacing_small_8"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="@string/user_profile.placeholder.image"
-                            android:textColor="@color/white"/>
+                </RelativeLayout>
+            </FrameLayout>
 
-                        <ImageView
-                            android:id="@+id/photo_placeholder"
-                            android:layout_width="@dimen/placeholder_photo_size_90"
-                            android:layout_height="@dimen/placeholder_photo_size_90"
-                            android:layout_alignParentBottom="true"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginBottom="@dimen/spacing_large_56"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/add_a_photo_48px"/>
-                    </RelativeLayout>
-                </FrameLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/AppTheme.PopupOverlay"
+                android:titleTextColor="@color/white"
+                app:layout_collapseMode="pin"/>
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:theme="@style/AppTheme.PopupOverlay"
-                    android:titleTextColor="@color/white"
-                    app:layout_collapseMode="pin"/>
-            </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
 
-        <!--user Bar -->
+    </android.support.design.widget.AppBarLayout>
+
+    <!--Stats-->
+    <LinearLayout
+        style="@style/stats_container"
+        app:layout_behavior=".ui.view.behaviors.UserInfoBehavior"
+        app:behavior_min_height="@dimen/size_medium_56">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size_larger_112"
-            android:background="@color/grey"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_behavior=".ui.view.behaviors.UserInfoBehavior"
-            app:behavior_min_height="@dimen/size_medium_56">
+            style="@style/stats_cell"
+            android:layout_weight="1">
 
-            <LinearLayout
-                style="@style/userBarElement.Side"
-                android:layout_weight="0.25">
+            <TextView
+                android:id="@+id/user_value_rating"
+                style="@style/stats_info_text.value"
+                android:text="@string/rating"/>
 
-                <TextView
-                    android:id="@+id/user_value_rating"
-                    style="@style/userBarText.Value"
-                    android:text="@string/count_rating"/>
-
-                <TextView
-                    style="@style/userBarText.Description"
-                    android:text="@string/rating"/>
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/userBarSeparator">
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/userBarElement.Central">
-
-                <TextView
-                    android:id="@+id/user_value_code_line"
-                    style="@style/userBarText.Value"
-                    android:text="@string/count_string_code"/>
-
-                <TextView
-                    style="@style/userBarText.Description"
-                    android:text="@string/write_string_code"/>
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/userBarSeparator">
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/userBarElement.Side">
-
-                <TextView
-                    android:id="@+id/user_value_project"
-                    style="@style/userBarText.Value"
-                    android:text="@string/count_projects"/>
-
-                <TextView
-                    style="@style/userBarText.Description"
-                    android:text="@string/projects"/>
-            </LinearLayout>
+            <TextView
+                style="@style/stats_info_text.description"
+                android:text="@string/rating"/>
         </LinearLayout>
 
+        <View
+            style="@style/divider_vertical"/>
 
-        <include layout="@layout/user_profile_content"/>
+        <LinearLayout
+            style="@style/stats_cell"
+            android:layout_weight="2">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/fab_right_space"
-            android:src="@drawable/ic_create_black_24dp"
-            app:layout_anchor="@id/appbar_layout"
-            app:layout_anchorGravity="bottom|right"/>
+            <TextView
+                android:id="@+id/user_value_code_lines"
+                style="@style/stats_info_text.value"
+                android:text="@string/count_string_code"/>
 
-    </android.support.design.widget.CoordinatorLayout>
+            <TextView
+                style="@style/stats_info_text.description"
+                android:text="@string/count_string_code"/>
+        </LinearLayout>
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer_menu">
+        <View
+            style="@style/divider_vertical"/>
 
-        <include layout="@layout/drawer_header"/>
+        <LinearLayout
+            style="@style/stats_cell"
+            android:layout_weight="1">
 
-    </android.support.design.widget.NavigationView>
+            <TextView
+                android:id="@+id/user_value_projects"
+                style="@style/stats_info_text.value"
+                android:text="@string/projects"/>
+
+            <TextView
+                style="@style/stats_info_text.description"
+                android:text="@string/projects"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include layout="@layout/user_profile_content"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/spacing_fab_right"
+        android:src="@drawable/ic_create_black_24dp"
+        app:layout_anchor="@id/appbar_layout"
+        app:layout_anchorGravity="bottom|right"/>
+
+</android.support.design.widget.CoordinatorLayout>
+
+<android.support.design.widget.NavigationView
+    android:id="@+id/navigation_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    app:headerLayout="@layout/drawer_header"
+    app:menu="@menu/drawer_menu">
+
+</android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>

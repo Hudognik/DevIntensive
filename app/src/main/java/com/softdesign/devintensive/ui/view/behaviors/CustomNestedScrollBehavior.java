@@ -10,6 +10,7 @@ import com.softdesign.devintensive.R;
 import com.softdesign.devintensive.utils.UiHelper;
 
 public class CustomNestedScrollBehavior extends AppBarLayout.ScrollingViewBehavior {
+
     private final int mMaxAppbarHeight;
     private final int mMinAppbarHeight;
     private final int mMaxUserInfoHeight;
@@ -18,18 +19,19 @@ public class CustomNestedScrollBehavior extends AppBarLayout.ScrollingViewBehavi
         super(context, attrs);
 
         mMinAppbarHeight = UiHelper.getStatusBarHeight() + UiHelper.getActionBarHeight();
-        mMaxAppbarHeight = context.getResources().getDimensionPixelSize(R.dimen.profile_image_size);
-        mMaxUserInfoHeight = context.getResources().getDimensionPixelSize(R.dimen.size_larger_112);
+        mMaxAppbarHeight = context.getResources().getDimensionPixelSize(R.dimen.size_profile_image_256);
+        mMaxUserInfoHeight = context.getResources().getDimensionPixelSize(R.dimen.size_user_info_112);
     }
 
     @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, View child, final View dependency) {
+    public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
         float friction = UiHelper.currentFriction(mMinAppbarHeight, mMaxAppbarHeight, dependency.getBottom());
-        int transY = UiHelper.lepr(mMaxUserInfoHeight / 2, mMaxUserInfoHeight, friction);
+        int offsetY = UiHelper.lerp(mMaxUserInfoHeight/2, mMaxUserInfoHeight, friction);
 
         CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
-        lp.topMargin = transY;
+        lp.topMargin = offsetY;
         child.setLayoutParams(lp);
+
         return super.onDependentViewChanged(parent, child, dependency);
     }
 

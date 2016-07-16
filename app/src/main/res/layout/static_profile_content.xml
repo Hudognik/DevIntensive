@@ -1,0 +1,61 @@
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior=".ui.view.behaviors.CustomNestedScrollBehavior"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--Github-->
+        <LinearLayout
+            style="@style/user_info_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/github_circle"/>
+
+            <ListView
+                android:id="@+id/repositories_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spacing_medium_32"/>
+
+        </LinearLayout>
+
+        <View
+            style="@style/divider_horizontal"/>
+
+        <!--About-->
+        <LinearLayout
+            style="@style/user_info_container">
+
+            <ImageView
+                style="@style/icon.left"
+                android:src="@drawable/ic_account_circle_black_24dp"/>
+
+            <LinearLayout
+                style="@style/user_info_layout"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/about_edit_profile"
+                        style="@style/edit_text"
+                        android:hint="@string/about"
+                        android:inputType="textMultiLine"
+                        android:text="@string/edit_about"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
