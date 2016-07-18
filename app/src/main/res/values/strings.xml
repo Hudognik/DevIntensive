@@ -45,5 +45,39 @@
     <string name="email_login_et">Email</string>
     <string name="password_login_et">Password</string>
     <string name="err_password">Введите пароль</string>
+    <string name="hint_search">Поиск</string>
+    <string name="my_profile_txt">Мой профиль</string>
+    <string name="users_txt">Пользователи</string>
+    <string name="team_txt">Команда</string>
+
+
+    <string name="email_hint">E-mail</string>
+    <string name="mobile_hint">Мобильный</string>
+    <string name="vk_hint">Профиль в VK</string>
+    <string name="repository_hint">Репозиторий</string>
+    <string name="about_hint">О себе</string>
+    <string name="about_text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="repository_text">github.com/vertazoom/DevIntensive</string>
+    <string name="vk_text">vk.com/id1</string>
+    <string name="email_text">admin@example.com</string>
+    <string name="mobile_text">+7(988)888–88-88</string>
+    <string name="stats_value">5</string>
+    <string name="stats_rating_text">Рейтинг</string>
+    <string name="stats_code_count_text">Написано строк кода</string>
+    <string name="stats_project_text">Проектов</string>
+
+    <!--Menu-->
+
+    <string name="user_profile.phone.error_message">Неверный формат номера</string>
+    <string name="user_profile.mail.error_message">Неверный формат E-mail адреса</string>
+    <string name="user_profile.vk.error_message">Адрес должен быть вида: vk.com/xxx</string>
+    <string name="user_profile.github.error_message">Адрес должен быть вида: github.com/xxx</string>
+    <string name="authorization.header">ВОЙТИ</string>
+    <string name="authorization.mail_hint">E-mail</string>
+    <string name="authorization.mail_text">a@example.com</string>
+    <string name="authorization.password_hint">Пароль</string>
+    <string name="authorization.button_text">Войти</string>
+    <string name="authorization.forgot_password_text">Забыли пароль?</string>
 
 </resources>
+

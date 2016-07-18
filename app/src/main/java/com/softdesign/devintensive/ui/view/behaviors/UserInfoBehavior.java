@@ -18,25 +18,25 @@ public class UserInfoBehavior<V extends LinearLayout> extends AppBarLayout.Scrol
     private final int mMinUserInfoHeight;
 
     public UserInfoBehavior(Context context, AttributeSet attrs) {
-        super (context, attrs);
-        TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.UserInfoBehavior);
-        mMinUserInfoHeight = arr.getDimensionPixelSize(R.styleable.UserInfoBehavior_behavior_min_height, 56);
-        arr.recycle();
+        super(context, attrs);
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.UserInfoBehavior);
+        mMinUserInfoHeight = a.getDimensionPixelSize(
+                R.styleable.UserInfoBehavior_behavior_min_height, 56);
+        a.recycle();
         mMinAppbarHeight = UiHelper.getStatusBarHeight() + UiHelper.getActionBarHeight();
-        mMaxAppbarHeight = context.getResources().getDimensionPixelSize(R.dimen.profile_image_size); //256dp
-        mMaxUserInfoHeight = context.getResources().getDimensionPixelSize(R.dimen.size_larger_112);//112dp;
-
+        mMaxAppbarHeight = context.getResources().getDimensionPixelSize(R.dimen.size_profile_image_256);
+        mMaxUserInfoHeight = context.getResources().getDimensionPixelSize(R.dimen.size_user_info_112);
     }
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
         float currentFriction = UiHelper.currentFriction(mMinAppbarHeight, mMaxAppbarHeight, dependency.getBottom());
-        int currentHeight = UiHelper.lepr(mMinUserInfoHeight, mMaxUserInfoHeight, currentFriction);
+        int currentHeight = UiHelper.lerp(mMinUserInfoHeight, mMaxUserInfoHeight, currentFriction);
 
         CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
         lp.height = currentHeight;
         child.setLayoutParams(lp);
-
         return super.onDependentViewChanged(parent, child, dependency);
     }
 

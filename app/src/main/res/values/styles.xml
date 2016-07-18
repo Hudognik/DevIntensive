@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -16,115 +16,110 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
-    <!-- Icon styles -->
+
+    <!--Icon style-->
     <style name="icon">
-        <item name="android:layout_width">@dimen/size_small_24</item>
-        <item name="android:layout_height">@dimen/size_small_24</item>
+        <item name="android:layout_width">@dimen/size_smaller_24</item>
+        <item name="android:layout_height">@dimen/size_smaller_24</item>
     </style>
 
     <style name="icon.left" parent="icon">
         <item name="android:layout_gravity">top|left</item>
-        <item name="android:layout_marginTop">@dimen/spacing_medium_24</item>
+        <item name="android:layout_marginTop">@dimen/spacing_medial_24</item>
         <item name="android:layout_marginLeft">@dimen/spacing_normal_16</item>
     </style>
 
     <style name="icon.right" parent="icon">
         <item name="android:layout_gravity">top|right</item>
-        <item name="android:layout_marginTop">@dimen/spacing_medium_24</item>
+        <item name="android:layout_marginTop">@dimen/spacing_medial_24</item>
         <item name="android:layout_marginRight">@dimen/spacing_medium_32</item>
     </style>
 
-    <!--User Bar Styles Elements -->
-    <style name="userBar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/grey</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:gravity">center</item>
-        <item name="android:paddingTop">@dimen/spacing_fab_28</item>
-        <item name="android:paddingBottom">@dimen/spacing_fab_28</item>
-        <item name="android:layout_weight">1</item>
-    </style>
-
-    <style name="userBarElements">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:orientation">vertical</item>
-    </style>
-
-    <style name="userBarElement.Side" parent="userBarElements">
-        <item name="android:layout_weight">0.25</item>
-    </style>
-
-    <style name="userBarElement.Central" parent="userBarElements">
-        <item name="android:layout_weight">0.5</item>
-    </style>
-
-    <style name="userBarSeparator">
-        <item name="android:layout_width">@dimen/size_separator_1</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@color/grey_light</item>
-    </style>
-
-    <style name="userBarText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-    </style>
-
-    <style name="userBarText.Value" parent="userBarText">
-        <item name="android:textSize">@dimen/font_normal_18</item>
-    </style>
-
-    <style name="userBarText.Description" parent="userBarText">
-        <item name="android:textSize">@dimen/font_normal_15</item>
-    </style>
-
-    <!--list elements Styles-->
-    <style name="listElements">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginTop">@dimen/spacing_small_8</item>
-        <item name="android:layout_marginBottom">@dimen/spacing_small_8</item>
-    </style>
-
-    <style name="listContent">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_marginLeft">@dimen/spacing_medium_32</item>
-        <item name="android:layout_marginRight">@dimen/spacing_normal_16</item>
-    </style>
-
-    <style name="listEditTextLayout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
-    <style name="listEditText">
+    <!--EditText style-->
+    <style name="edit_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textColorHint">@color/grey</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:focusable">false</item>
         <item name="android:enabled">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-condensed</item>
     </style>
 
-    <style name="listSeparator">
+    <!--Stats-->
+    <style name="stats_container">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/size_separator_1</item>
+        <item name="android:layout_height">@dimen/size_user_info_112</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/color_primary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="stats_cell">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="stats_info_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif-condensed</item>
+    </style>
+
+    <style name="stats_info_text.value" parent="stats_info_text">
+        <item name="android:textSize">@dimen/font_larger_22</item>
+    </style>
+
+    <style name="stats_info_text.description" parent="stats_info_text">
+        <item name="android:textSize">@dimen/font_normal_14</item>
+    </style>
+
+    <!--User Info-->
+    <style name="user_info_container">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">@dimen/size_large_72</item>
+        <item name="android:layout_marginTop">@dimen/spacing_small_8</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_small_8</item>
+    </style>
+
+    <style name="user_info_layout">
+        <item name="android:layout_width">@dimen/size_zero_0</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/spacing_medium_32</item>
+        <item name="android:layout_marginRight">@dimen/spacing_normal_16</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!--Horizontal divider-->
+    <style name="divider_horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_size_1</item>
         <item name="android:layout_marginLeft">@dimen/spacing_larger_72</item>
         <item name="android:background">@color/grey_light</item>
     </style>
 
+    <!--Vertical divider-->
+    <style name="divider_vertical">
+        <item name="android:layout_width">@dimen/line_size_1</item>
+        <item name="android:layout_height">@dimen/size_large_72</item>
+        <item name="android:background">@color/grey_light</item>
+    </style>
+
+    <!--Progress Dialog-->
     <style name="custom_dialog">
         <item name="android:fullDark">@android:color/transparent</item>
     </style>
 
+    <!--Toolbar-->
+    <style name="ToolbarStyle" parent="Theme.AppCompat">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+    </style>
 </resources>
